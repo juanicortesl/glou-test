@@ -1,8 +1,32 @@
-import logo from "./logo.svg";
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import BudgetsCreate from "./BudgetsCreate";
+import Nav from "react-bootstrap/Nav";
+import BudgetsResult from "./BudgetsResult";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <Router>
+      <div className="App">
+        <Nav className="justify-content-end" variant="pills">
+          <Nav.Item>
+            <Nav.Link href="/create" eventKey="create">
+              Crear presupuestos
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/result" eventKey="result">
+              Situación actual
+            </Nav.Link>
+          </Nav.Item>
+        </Nav>
+        <Routes>
+          <Route path="/create" element={<BudgetsCreate />}></Route>
+          <Route path="/result" element={<BudgetsResult />}></Route>
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
 export default App;

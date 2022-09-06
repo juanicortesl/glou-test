@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -11,6 +12,8 @@ function BudgetsCreate() {
   const [budgets, setBudgets] = React.useState(basicBudgets);
   const [budgetName, setBudgetName] = React.useState("");
   const [accessToken, setAccessToken] = React.useState("");
+
+  const navigate = useNavigate();
 
   const changeAmount = (budgetIndex, amount) => {
     const newBudgets = budgets;
@@ -32,7 +35,9 @@ function BudgetsCreate() {
       },
     })
       .then((response) => response.json())
-      .then((json) => console.log(json, "json"))
+      .then((json) => {
+        navigate("/result", { state: json });
+      })
       .catch((err) => {
         console.log(err, "error");
         alert("Error en la request, revisa los valores ingresados");

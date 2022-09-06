@@ -1,3 +1,11 @@
+/* variables */
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff;
+  --green: rgb(7, 147, 65);
+}
+
+/* components */
 .App {
   padding: 1rem 2rem;
 }
@@ -7,4 +15,52 @@
 }
 input {
   min-width: 8rem;
+}
+.budget-summary-title {
+  width: 30%;
+}
+.budget-summary-amount {
+  width: 30%;
+}
+.budget-summary-items {
+  width: 60%;
+}
+.budget-summary-box {
+  width: 5rem;
+  height: 3rem;
+  line-height: 1.4rem;
+  border: 3px solid var(--green);
+  border-radius: 10px;
+  text-align: center;
+}
+.budget-summary-box.blue {
+  border: 3px solid var(--blue);
+}
+.bottom-border-line {
+  border-bottom: 2px solid var(--blue);
+}
+.arrow-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* text */
+h2 {
+  font-size: 1.5rem !important;
+}
+
+h3 {
+  font-weight: 200 !important;
+  margin: 0 !important;
+  font-size: 1.3rem !important;
+}
+
+h4 {
+  font-size: 1.2rem !important;
+  margin: 0 !important;
+}
+
+p {
+  font-size: 0.8rem;
+  margin: 0 !important;
 }

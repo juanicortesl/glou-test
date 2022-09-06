@@ -95,7 +95,7 @@ function BudgetsResult() {
                       </Row>
                     </td>
                     <td className="budget-summary-items px-2">
-                      {basicBudgets.map((budget, index) => {
+                      {resultData.rows.map((budget, index) => {
                         if (budget.isExpense) {
                           return (
                             <div key={index}>

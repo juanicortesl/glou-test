@@ -11,7 +11,7 @@ function App() {
         <Nav className="justify-content-end" variant="pills">
           <Nav.Item>
             <Nav.Link href="/create" eventKey="create">
-              Crear presupuestos
+              Crear presupuesto
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>

@@ -11,7 +11,6 @@ import basicBudgets from "./data/basicBudgets";
 function BudgetsCreate() {
   const [budgets, setBudgets] = React.useState(basicBudgets);
   const [budgetName, setBudgetName] = React.useState("");
-  const [accessToken, setAccessToken] = React.useState("");
 
   const navigate = useNavigate();
 
@@ -26,12 +25,13 @@ function BudgetsCreate() {
       name: budgetName,
       rows: budgets,
     };
+    const token = localStorage.getItem("accessToken");
     fetch("https://glou-back.herokuapp.com/budgets", {
       method: "POST",
       body: JSON.stringify(body),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${token}`,
       },
     })
       .then((response) => response.json())
@@ -63,26 +63,11 @@ function BudgetsCreate() {
                     />
                   </td>
                 </tr>
-                <tr>
-                  <td>Access token</td>
-                  <td>
-                    <Form.Control
-                      type="text"
-                      onChange={(event) => {
-                        setAccessToken(event.target.value);
-                      }}
-                    />
-                  </td>
-                </tr>
               </tbody>
             </table>
           </Col>
           <Col>
-            <Button
-              variant="primary"
-              onClick={handleSubmit}
-              disabled={!accessToken}
-            >
+            <Button variant="primary" onClick={handleSubmit}>
               Guardar
             </Button>{" "}
           </Col>

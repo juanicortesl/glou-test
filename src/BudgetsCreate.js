@@ -7,16 +7,26 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import basicBudgets from "./data/basicBudgets";
+import CreateRowModal from "./CreateRowModal";
 
 function BudgetsCreate() {
   const [budgets, setBudgets] = React.useState(basicBudgets);
   const [budgetName, setBudgetName] = React.useState("");
+  const [showModal, setShowModal] = React.useState(false);
 
+  const handleClose = () => setShowModal(false);
+  const handleShow = () => setShowModal(true);
   const navigate = useNavigate();
 
   const changeAmount = (budgetIndex, amount) => {
     const newBudgets = budgets;
     newBudgets[budgetIndex].amount = amount;
+    setBudgets(newBudgets);
+  };
+
+  const addBudget = (budget) => {
+    const newBudgets = budgets;
+    newBudgets.push(budget);
     setBudgets(newBudgets);
   };
 
@@ -113,7 +123,18 @@ function BudgetsCreate() {
             </table>
           </Col>
         </Row>
+        <Row className="justify-content-center p-4">
+          <Button className="" onClick={handleShow}>
+            Crear nueva fila
+          </Button>
+        </Row>
       </Container>
+      <CreateRowModal
+        show={showModal}
+        handleClose={handleClose}
+        handleShow={handleShow}
+        addRow={addBudget}
+      ></CreateRowModal>
     </div>
   );
 }

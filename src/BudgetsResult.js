@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import basicBudgets from "./data/basicBudgets";
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Navigate, useNavigate } from "react-router-dom";
 
 function numberWithPoints(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -14,11 +14,16 @@ function BudgetsResult() {
   const [resultData, setResultData] = React.useState({});
 
   const { state } = useLocation();
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     // retrieve result data
     console.log(state, "state from result");
-    setResultData(state);
+    if (state) {
+      setResultData(state);
+    } else {
+      navigate("/create");
+    }
   }, []);
   return (
     <div>

@@ -8,7 +8,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-function Login() {
+function Login({ setIsLoggedIn }) {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const navigate = useNavigate();
@@ -24,9 +24,12 @@ function Login() {
         "Content-type": "application/json; charset=UTF-8",
       },
     })
-      .then((response) => response.json())
+      .then((response) => {
+        return response.json();
+      })
       .then((json) => {
         localStorage.setItem("accessToken", json.accessToken);
+        setIsLoggedIn(true);
         navigate("/create");
       })
       .catch((err) => {

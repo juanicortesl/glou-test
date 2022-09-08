@@ -34,7 +34,14 @@ function BudgetsCreate() {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.status === 401) {
+          alert("Token no valido, vuelve a iniciar sesion");
+          localStorage.removeItem("accessToken");
+          navigate("/login");
+        }
+        return response.json();
+      })
       .then((json) => {
         navigate("/result", { state: json });
       })

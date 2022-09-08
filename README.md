@@ -1,6 +1,6 @@
 # Glou test app
 
-App deployed to heroku : [https://glow-test-app.herokuapp.com](app link) to view it in your browser.
+App deployed to heroku : [app link](https://glow-test-app.herokuapp.com) to view it in your browser.
 
 Run app locally with `npm start_dev`:
 Requirements:

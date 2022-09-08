@@ -43,14 +43,6 @@ function App() {
 
         <Routes>
           <Route
-            exact
-            path="/"
-            component={
-              isLoggedIn ? <Navigate to="/create" /> : <Navigate to="/login" />
-            }
-          />
-
-          <Route
             path="/login"
             element={<Login setIsLoggedIn={setIsLoggedIn} />}
           ></Route>
@@ -68,6 +60,16 @@ function App() {
               <PrivateRoute>
                 <BudgetsResult />
               </PrivateRoute>
+            }
+          ></Route>
+          <Route
+            path="/"
+            element={
+              isLoggedIn ? (
+                <Navigate to="/create" replace={true} />
+              ) : (
+                <Navigate to="/login" replace={true} />
+              )
             }
           ></Route>
         </Routes>

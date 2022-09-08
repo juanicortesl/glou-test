@@ -1,12 +1,17 @@
-# Getting Started with Create React App
+# Glou test app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+App deployed to heroku : [https://glow-test-app.herokuapp.com](app link) to view it in your browser.
+
+Run app locally with `npm start_dev`:
+Requirements:
+-Node ^14.0.0
+-Npm ^6.0.60
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm start_dev`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.

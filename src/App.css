@@ -1,38 +1,66 @@
+/* variables */
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff;
+  --green: rgb(7, 147, 65);
+}
+
+/* components */
 .App {
+  padding: 1rem 2rem;
+}
+.BudgetsTable {
+  width: 100%;
+  margin: 1rem;
+}
+input {
+  min-width: 8rem;
+}
+.budget-summary-title {
+  width: 30%;
+}
+.budget-summary-amount {
+  width: 30%;
+}
+.budget-summary-items {
+  width: 60%;
+}
+.budget-summary-box {
+  width: 5rem;
+  height: 3rem;
+  line-height: 1.4rem;
+  border: 3px solid var(--green);
+  border-radius: 10px;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.budget-summary-box.blue {
+  border: 3px solid var(--blue);
+}
+.bottom-border-line {
+  border-bottom: 2px solid var(--blue);
+}
+.arrow-icon {
+  width: 2rem;
+  height: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* text */
+h2 {
+  font-size: 1.5rem !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h3 {
+  font-weight: 200 !important;
+  margin: 0 !important;
+  font-size: 1.3rem !important;
 }
 
-.App-link {
-  color: #61dafb;
+h4 {
+  font-size: 1.2rem !important;
+  margin: 0 !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+p {
+  font-size: 0.8rem;
+  margin: 0 !important;
 }
